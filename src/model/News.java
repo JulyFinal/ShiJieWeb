@@ -79,7 +79,7 @@ public class News {
     public void setPicture(String picture) {
         this.picture = picture;
     }
-    //获取热点新闻
+    //鑾峰彇鐑偣鏂伴椈
     public ArrayList<News> getHotNews() throws ClassNotFoundException, SQLException {
         ArrayList<News> news = new ArrayList<News>();
         Class.forName("com.mysql.jdbc.Driver");
@@ -101,7 +101,7 @@ public class News {
         con.close();
         return news;
     }
-    //获取客户收藏的新闻
+    //鑾峰彇瀹㈡埛鏀惰棌鐨勬柊闂�
     public ArrayList<News> getAddFavorites() throws ClassNotFoundException, SQLException{
         ArrayList<News> news = new ArrayList<News>();
         Class.forName("com.mysql.jdbc.Driver");
@@ -123,7 +123,7 @@ public class News {
         con.close();
         return news;
     }
-    //获取所有新闻列表
+    //鑾峰彇鎵�鏈夋柊闂诲垪琛�
     public ArrayList<News> getAllNewsList() throws ClassNotFoundException, SQLException {
         ArrayList<News> news = new ArrayList<News>();
         Class.forName("com.mysql.jdbc.Driver");
@@ -139,6 +139,27 @@ public class News {
             n.setType(rs.getInt("type"));
             n.setTypeName(rs.getString("typeName"));
             n.setPoint(rs.getInt("point"));
+            news.add(n);
+        }
+        rs.close();
+        stmt.close();
+        con.close();
+        return news;
+    }
+    public ArrayList<News> getRemNews() throws ClassNotFoundException, SQLException {
+        ArrayList<News> news = new ArrayList<News>();
+        Class.forName("com.mysql.jdbc.Driver");
+        String dbUrl = "jdbc:mysql://localhost:3306/News";
+        Connection con = DriverManager.getConnection(dbUrl,"root","root");
+        Statement stmt = con.createStatement();
+        String sql = "select * from news order by point desc limit 1,6";
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            News n = new News();
+            n.setId(rs.getInt("id"));
+            n.setPicture(rs.getString("picture"));
+            n.setNewstitle(rs.getString("newstitle"));
+
             news.add(n);
         }
         rs.close();

@@ -15,7 +15,7 @@ import model.News;
 /**
  * Servlet implementation class Index
  */
-@WebServlet("/Index")
+@WebServlet("/index")
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,6 +41,7 @@ public class Index extends HttpServlet {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
 	}
 
 	/**

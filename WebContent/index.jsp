@@ -95,7 +95,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="typography.jsp">分类</a></li>
 					<li><a href="gallery.jsp">画廊</a></li>
 					<li><a href="contact.jsp">关于</a></li>
-<%@ include file="headerdown.jsp" %>
+				  </ul>
+			  <div class="clearfix"></div>
+			</div>
+		</nav>
+	</div>
+</div>
+<!-- //navigation -->
+				<div class="clearfix"></div>
+			</div>
+	</div>
 	<div class="screen-shots">
 					<!--sreen-gallery-cursual-->
 						<div class="sreen-gallery-cursual">
